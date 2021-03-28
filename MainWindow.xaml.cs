@@ -23,26 +23,37 @@ namespace Payment
         public MainWindow()
         {
             InitializeComponent();
+            
+        }
+
+        private void Submit_Click(object sender, RoutedEventArgs e)
+        {
+            Employee employee = new Employee(EducationCombo.Text, Position.Text, Convert.ToInt16(Payment.Text), Name.Text, Surname.Text, Convert.ToInt16(DateOfBirth.Text));
+            Fin.Content = "Finish";
         }
     }
     class Person
     {
-        string name;
-        string surname;
-        string date;
-        public Person(string nameC, string surnameC, string dateC) 
+           string name;
+           string surname;
+           int yearOfBirth;
+        public Person(string nameC, string surnameC, int dateC) 
         {
-            nameC = name;
-            surnameC = surname;
-            dateC = date;
+            name = nameC;
+            surname = surnameC;
+            yearOfBirth = dateC;
         }
-        //string Name { get; set; }
-        //string Surname { get; set;}
-        ////var dat = new DateTime();
     }
-    class Employe : Person
-    {
+    class Employee : Person
+    {     
         int payment;
-
+        string position;
+        string education;
+        public Employee(string educationE, string positionE , int paymentE, string nameC, string surnameC, int dateC) : base(nameC, surnameC, dateC) 
+        {
+            payment = paymentE;
+            education = educationE;
+            position = positionE;
+        }
     }
 }
