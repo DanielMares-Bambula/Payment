@@ -24,9 +24,9 @@
             <RowDefinition Height="1*"></RowDefinition>
             <RowDefinition Height="5*"></RowDefinition>
         </Grid.RowDefinitions>
-        <TextBox x:Name="Name" Grid.Column="1" Grid.Row="1"> Name </TextBox>
-        <TextBox x:Name="Surname" Grid.Column="1" Grid.Row="2"> Surname </TextBox>
-        <TextBox x:Name="DateOfBirth" Grid.Column="1" Grid.Row="3"> Date of Birth</TextBox>
+        <TextBox x:Name="Name" Grid.Column="1" Grid.Row="1" Text="{Binding Name, Mode=OneWay}">  </TextBox>
+        <TextBox x:Name="Surname" Grid.Column="1" Grid.Row="2" Text="{Binding Surname, Mode=OneWay}"> </TextBox>
+        <TextBox x:Name="DateOfBirth" Grid.Column="1" Grid.Row="3" Text="{Binding DateOfBrith, Mode=OneWay}"> </TextBox>
         <ComboBox x:Name="EducationCombo" Grid.Column="1" Grid.Row="4">
             <ComboBoxItem>Kinder garden</ComboBoxItem>
             <ComboBoxItem>Elementary school</ComboBoxItem>
@@ -34,8 +34,8 @@
             <ComboBoxItem>Hight school</ComboBoxItem>
             <ComboBoxItem>University</ComboBoxItem>
         </ComboBox>
-        <TextBox x:Name="Payment" Grid.Column="1" Grid.Row="5" > Salary </TextBox>
-        <TextBox x:Name="Position" Grid.Column="1" Grid.Row="6"> Work position </TextBox>
+        <TextBox x:Name="Payment" Grid.Column="1" Grid.Row="5" Text="{Binding Salary, Mode=OneWay}"></TextBox>
+        <TextBox x:Name="Position" Grid.Column="1" Grid.Row="6" Text="{Binding WorkPosition , Mode=OneWay}" >  </TextBox>
         <Label x:Name="Fin" Grid.Column="2" Grid.Row="6"></Label>
         <Button x:Name="Submit" Grid.Column="2" Grid.Row="7" Click="Submit_Click"> Submit</Button>
     </Grid>

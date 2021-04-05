@@ -34,14 +34,14 @@ namespace Payment
     }
     class Person
     {
-           string name;
-           string surname;
-           int yearOfBirth;
+           string Name { get; set; }
+           string Surname { get; set; }
+           int YearOfBirth { get; set; }
         public Person(string nameC, string surnameC, int dateC) 
         {
-            name = nameC;
-            surname = surnameC;
-            yearOfBirth = dateC;
+            Name = nameC;
+            Surname = surnameC;
+            YearOfBirth = dateC;
         }
     }
     class Employee : Person
@@ -57,3 +57,4 @@ namespace Payment
         }
     }
 }
+
