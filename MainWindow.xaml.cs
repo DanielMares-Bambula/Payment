@@ -23,7 +23,9 @@ namespace Payment
         public MainWindow()
         {
             InitializeComponent();
-            
+            Person p = new Person();
+            DataContext = p;
+
         }
 
         private void Submit_Click(object sender, RoutedEventArgs e)
@@ -46,14 +48,14 @@ namespace Payment
     }
     class Employee : Person
     {     
-        int payment;
-        string position;
-        string education;
+        int Payment { get; set; }
+        string Position { get; set; }
+        string Education { get; set; }
         public Employee(string educationE, string positionE , int paymentE, string nameC, string surnameC, int dateC) : base(nameC, surnameC, dateC) 
         {
-            payment = paymentE;
-            education = educationE;
-            position = positionE;
+            Payment = paymentE;
+            Education = educationE;
+            Position = positionE;
         }
     }
 }
