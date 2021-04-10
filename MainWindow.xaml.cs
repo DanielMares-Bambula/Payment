@@ -12,51 +12,49 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.ComponentModel;
 
 namespace Payment
 {
     /// <summary>
     /// Interakční logika pro MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : Window, INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        Employee em;
         public MainWindow()
         {
-            InitializeComponent();
-            Person p = new Person();
-            DataContext = p;
-
+            try
+            {
+                InitializeComponent();
+                em = new Employee {Name = "None", Surname = "None", Payment = "None", Position = "None", YearOfBirth = "None"};
+                this.DataContext = em;
+            }
+            catch (Exception ex)
+            {
+                Error.Content = ex.Message;
+            }
         }
 
         private void Submit_Click(object sender, RoutedEventArgs e)
-        {
-            Employee employee = new Employee(EducationCombo.Text, Position.Text, Convert.ToInt16(Payment.Text), Name.Text, Surname.Text, Convert.ToInt16(DateOfBirth.Text));
+        {           
             Fin.Content = "Finish";
         }
     }
     class Person
     {
-           string Name { get; set; }
-           string Surname { get; set; }
-           int YearOfBirth { get; set; }
-        public Person(string nameC, string surnameC, int dateC) 
-        {
-            Name = nameC;
-            Surname = surnameC;
-            YearOfBirth = dateC;
-        }
+         public string Name { get; set; }
+         public string Surname { get; set; }
+         public string YearOfBirth { get; set; }      
     }
     class Employee : Person
     {     
-        int Payment { get; set; }
-        string Position { get; set; }
-        string Education { get; set; }
-        public Employee(string educationE, string positionE , int paymentE, string nameC, string surnameC, int dateC) : base(nameC, surnameC, dateC) 
-        {
-            Payment = paymentE;
-            Education = educationE;
-            Position = positionE;
-        }
+         public string Payment { get; set; }
+         public string Position { get; set; }
+         public string Education { get; set; }
+       
     }
 }
 
