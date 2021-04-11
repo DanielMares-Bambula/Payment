@@ -11,7 +11,7 @@
             <ColumnDefinition Width="1*"></ColumnDefinition>
             <ColumnDefinition Width="0.5*"></ColumnDefinition>
             <ColumnDefinition Width="0.5*"></ColumnDefinition>
-            <ColumnDefinition Width="0.5*"></ColumnDefinition>
+            <ColumnDefinition Width="0.8*"></ColumnDefinition>
             <ColumnDefinition Width="0.5*"></ColumnDefinition>
             <ColumnDefinition Width="0.5*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
@@ -26,9 +26,9 @@
             <RowDefinition Height="1*"></RowDefinition>
             <RowDefinition Height="5*"></RowDefinition>
         </Grid.RowDefinitions>
-        <TextBox x:Name="Name" Grid.Column="2" Grid.Row="1" Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}">  </TextBox>
-        <TextBox x:Name="Surname" Grid.Column="2" Grid.Row="2" Text="{Binding Surname, UpdateSourceTrigger=PropertyChanged}"> </TextBox>
-        <TextBox x:Name="YearOfBirth" Grid.Column="2" Grid.Row="3" Text="{Binding YearOfBirth, UpdateSourceTrigger=PropertyChanged}"> </TextBox>
+        <TextBox x:Name="Name" Grid.Column="2" Grid.Row="1" Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" TextChanged="Name_TextChanged"></TextBox>
+        <TextBox x:Name="Surname" Grid.Column="2" Grid.Row="2" Text="{Binding Surname, UpdateSourceTrigger=PropertyChanged}" TextChanged="Surname_TextChanged"></TextBox>
+        <TextBox x:Name="YearOfBirth" Grid.Column="2" Grid.Row="3" Text="{Binding YearOfBirth, UpdateSourceTrigger=PropertyChanged}" TextChanged="YearOfBirth_TextChanged"></TextBox>
         <ComboBox x:Name="EducationCombo" Grid.Column="2" Grid.Row="4">
             <ComboBoxItem>Kinder garden</ComboBoxItem>
             <ComboBoxItem>Elementary school</ComboBoxItem>
@@ -36,16 +36,20 @@
             <ComboBoxItem>Hight school</ComboBoxItem>
             <ComboBoxItem>University</ComboBoxItem>
         </ComboBox>
-        <TextBox x:Name="Payment" Grid.Column="2" Grid.Row="5" Text="{Binding Payment, UpdateSourceTrigger=PropertyChanged}"></TextBox>
-        <TextBox x:Name="Position" Grid.Column="2" Grid.Row="6" Text="{Binding Position, UpdateSourceTrigger=PropertyChanged}" >  </TextBox>
+        <TextBox x:Name="Payment" Grid.Column="2" Grid.Row="5" Text="{Binding Payment, UpdateSourceTrigger=PropertyChanged}" TextChanged="Payment_TextChanged"></TextBox>
+        <TextBox x:Name="Position" Grid.Column="2" Grid.Row="5" Text="{Binding Position, UpdateSourceTrigger=PropertyChanged}" Height="25" Margin="0.4,24.6,0.4,0" Grid.RowSpan="2" VerticalAlignment="Top" TextChanged="Position_TextChanged" ></TextBox>
         <Label Grid.Column="1" Grid.Row="1">Name</Label>
         <Label Grid.Column="1" Grid.Row="2">Surname</Label>
-        <Label Grid.Column="1" Grid.Row="3">Date of Birth</Label>
+        <Label Grid.Column="1" Grid.Row="3">Year of Birth</Label>
         <Label Grid.Column="1" Grid.Row="4">Education</Label>
         <Label Grid.Column="1" Grid.Row="5">Salary</Label>
         <Label Grid.Column="1" Grid.Row="6">Working Position</Label>
+        <Label x:Name="NameError" Grid.Column="3" Grid.Row="1" Visibility="{Binding NameErrorVisible}">Name is invalit format</Label>
+        <Label x:Name="SurNameError" Grid.Column="3" Grid.Row="2" Visibility="{Binding SurNameErrorVisible}">Surname is invalit format</Label>
+        <Label x:Name="YearOfBirthError" Grid.Column="3" Grid.Row="3" Visibility="{Binding YearOfBirthErrorErrorVisible}">Year of Birth is invalit format</Label>
+        <Label x:Name="PaymentError" Grid.Column="3" Grid.Row="5" Visibility="{Binding PaymentErrorVisible}">Payment is invalit format</Label>
+        <Label x:Name="PositionError" Grid.Column="3" Grid.Row="6" Visibility="{Binding PositionErrorVisible}">Position is invalit format</Label>
         <Label x:Name="Fin" Grid.Column="3" Grid.Row="8"></Label>
-        <Label x:Name="Error" Grid.Column="3" Grid.Row="8"></Label>
-        <Button x:Name="Submit" Grid.Column="3" Grid.Row="7" Click="Submit_Click"> Submit</Button>
+        <Button x:Name="Submit" Grid.Column="3" Grid.Row="7" Click="Submit_Click">Submit</Button>
     </Grid>
 </Window>
